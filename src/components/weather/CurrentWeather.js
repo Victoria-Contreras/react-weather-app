@@ -24,7 +24,7 @@ const CurrentWeather = () => {
         <div>
             { data ? <h1>{data.name}</h1> : null}
             {data.main ? <h2>{data.main.temp.toFixed()}°F</h2> : null}
-            {data.weather ? <h2>{data.weather.description}</h2> : null}
+            {data.weather ? <h2>{data.weather[0].description}</h2> : null}
             <div>
                 {data.main ? <p>High: {data.main.temp_max.toFixed()}°F</p> : null}
                 {data.main ? <p>Low: {data.main.temp_min.toFixed()}°F</p> : null}
