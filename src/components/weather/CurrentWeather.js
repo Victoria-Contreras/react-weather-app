@@ -21,18 +21,18 @@ const CurrentWeather = () => {
     }, [city])
 
     return (  
-        <div>
+        <div id='current-weather'>
             { data ? <h1>{data.name}</h1> : null}
             {data.main ? <h2>{data.main.temp.toFixed()}°F</h2> : null}
             {data.weather ? <h2>{data.weather[0].description}</h2> : null}
-            <div>
+            <div className="details">
                 {data.main ? <p>High: {data.main.temp_max.toFixed()}°F</p> : null}
                 {data.main ? <p>Low: {data.main.temp_min.toFixed()}°F</p> : null}
             </div>
-            <div>
-                {data.main ? <p>Feels Like: {data.main.feels_like.toFixed()}°F</p> : null}
-                {data.main ? <p>Humidity: {data.main.humidity.toFixed()}%</p> : null}
-                {data.wind ? <p>wind: {data.wind.speed.toFixed()} MPH</p> : null} 
+            <div className="details">
+                {data.main ? <p>Feels Like:<br /> {data.main.feels_like.toFixed()}°F</p> : null}
+                {data.main ? <p>Humidity:<br /> {data.main.humidity.toFixed()}%</p> : null}
+                {data.wind ? <p>Wind:<br /> {data.wind.speed.toFixed()} MPH</p> : null} 
             </div>
         </div>
     );

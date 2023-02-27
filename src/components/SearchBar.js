@@ -12,7 +12,7 @@ const SearchBar = () => {
         setSearchString('')
     }
     return ( 
-        <form onSubmit={handleSubmit}>
+        <form id="city-search" onSubmit={handleSubmit}>
             <input type="text" value={searchString} placeholder="City" onChange={(event) => setSearchString(event.target.value)} />
             <button type="submit">Search</button>
         </form>
