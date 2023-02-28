@@ -1,12 +1,12 @@
-const DailyForcast = () => {
+const DailyForcast = (forcast, key) => {
     return ( 
         <div>
-            <p>MON</p>
-            <p>Cloudy</p>
-            <div>
-                <p>High: </p>
-                <p>Low: </p>
-            </div>
+            {/* <p>{key} </p> */}
+            <p>{forcast.time}</p>
+            {/* <div>
+                <p>High: {forcast.temperature_2m_max} </p>
+                <p>Low: {forcast.temperature_2m_min}</p>
+            </div> */}
         </div>
      );
 }

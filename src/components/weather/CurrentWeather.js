@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { setcurrentWeather } from '../../features/weather/currentWeatherSlice'
-
+import ErrorCity from './ErrorCity';
 
 const CurrentWeather = () => {
     const city = useSelector((state) => state.city.city);
@@ -25,18 +25,18 @@ const CurrentWeather = () => {
         <div id='current-weather'>
             <div className='main'>
                 {data ? <h2>{data.name}</h2> : null}
-                {data.main ? <h2>{data.main.temp.toFixed()}°F</h2> : null}
+                {data.main ? <h2>{data.main.temp.toFixed()}°F</h2> : <ErrorCity />}
                 {data.weather ? <h2>{data.weather[0].description}</h2> : null}
                 <div className="h-l">
                     {data.main ? <p>High: {data.main.temp_max.toFixed()}°F</p> : null}
                     {data.main ? <p>Low: {data.main.temp_min.toFixed()}°F</p> : null}
                 </div>
             </div>
-            <div className="details">
+          { data.main?  <div className="details">
                 {data.main ? <p>Feels Like:<br /> {data.main.feels_like.toFixed()}°F</p> : null}
                 {data.main ? <p>Humidity:<br /> {data.main.humidity.toFixed()}%</p> : null}
                 {data.wind ? <p>Wind:<br /> {data.wind.speed.toFixed()} MPH</p> : null} 
-            </div>
+            </div> : null}
         </div>
     );
 }
