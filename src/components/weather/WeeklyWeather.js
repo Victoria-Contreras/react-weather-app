@@ -6,8 +6,8 @@ import { useSelector, useDispatch } from 'react-redux'
 const WeeklyWeather = () => {
     const city = useSelector((state) => state.city.city);
 
-    const [weeklyForcast, setWeeklyForcast] = useState({})
     const [coordinates, setCoordinates] = useState({})
+    const [weeklyForcast, setWeeklyForcast] = useState({})
 
     const getCoordinates = () => {
         
@@ -29,10 +29,16 @@ const WeeklyWeather = () => {
         useEffect(() => {
             getCoordinates()
         }, [city]);
+    
+        function convertToF(celsius) {
+            const fahrenheit = celsius * (9 / 5) + 32;
+            return fahrenheit;
+        }
 
         return ( 
             <div>
                 {weeklyForcast.time ? <p>test</p> : null}
+                {weeklyForcast.time ? weeklyForcast.time.map((day, index) => <p key={index}>{day} High: {convertToF(weeklyForcast.temperature_2m_max[index]).toFixed()} Low: {convertToF(weeklyForcast.temperature_2m_max[index]).toFixed()} </p>) : null}
                 {/* {weeklyForcast.time?.map((day, index) => <DailyForcast forcast={weeklyForcast} key={index} />) } */}
             </div>
         );
