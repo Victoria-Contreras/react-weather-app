@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react';
 import { setCity } from '../features/city/citySlice'
+import searchIcon from '../assets/search.png'
 
 const SearchBar = () => {
     const dispatch = useDispatch();
@@ -8,13 +9,15 @@ const SearchBar = () => {
     
     function handleSubmit(event) {
         event.preventDefault()
-        dispatch(setCity(searchString))
-        setSearchString('')
+        if (searchString){
+            dispatch(setCity(searchString))
+            setSearchString('')
+        }
     }
     return ( 
         <form id="city-search" onSubmit={handleSubmit}>
             <input type="text" value={searchString} placeholder="City" onChange={(event) => setSearchString(event.target.value)} />
-            <button type="submit">Search</button>
+            <button type="submit"><img id='search-icon' src={searchIcon} /></button>
         </form>
      );
 }
