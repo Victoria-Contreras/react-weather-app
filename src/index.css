@@ -22,6 +22,10 @@ nav a {
   padding: 10px 10px 0 0;
 }
 
+h1 {
+  font-size: 3em;
+}
+
 #logo {
   align-self: center;
   text-align: center;
