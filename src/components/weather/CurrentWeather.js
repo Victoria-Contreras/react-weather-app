@@ -1,23 +1,24 @@
-import { useSelector, useDispatch } from 'react-redux'
-import {setCityData} from '../../features/city/cityDataSlice'
 import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { setcurrentWeather } from '../../features/weather/currentWeatherSlice'
+
 
 const CurrentWeather = () => {
     const city = useSelector((state) => state.city.city);
-    const data = useSelector((state) => state.data.data);
+    const data = useSelector((state) => state.current.data);
 
     const dispatch = useDispatch();
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=imperial&appid=d8763d9fbe4cd52f511e2d222ba85715`
     
-    const getCityData = async () => {
+    const getCurrentWeather = async () => {
         fetch(url)
             .then(response => response.json())
-            .then(data => dispatch(setCityData(data)))
+            .then(data => dispatch(setcurrentWeather(data)))
     }
 
     useEffect(() => {
-        getCityData()
+        getCurrentWeather()
     }, [city])
 
     return (  

@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const cityDataSlice = createSlice({
-    name: 'data',
+export const currentWeatherSlice = createSlice({
+    name: 'current',
     initialState: {
         data: {}
     },
     reducers: {
-        setCityData: (state, action) => {
+        setcurrentWeather: (state, action) => {
             state.data = action.payload
         },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setCityData } = cityDataSlice.actions
+export const { setcurrentWeather } = currentWeatherSlice.actions
 
-export default cityDataSlice.reducer
+export default currentWeatherSlice.reducer

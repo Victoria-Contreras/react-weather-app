@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import SearchBar from './components/SearchBar';
 import CurrentWeather from './components/weather/CurrentWeather';
+import DailyForcast from './components/weather/DailyForcast';
 
 function App() {
   return (
