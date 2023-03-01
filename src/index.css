@@ -133,16 +133,37 @@ h2 {
   margin: 10px;
 }
 
-
-/* .details {
-    background-color: rgba(255, 255, 255, 0.45);
-    border-radius: 25px;
-    width: 75%;
-    min-width: 350px;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+h3 {
+  font-size: 1em;
 }
- */
+
+#forcast {
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 25px;
+  width: 75%;
+  min-width: 350px;
+  padding: 10px;
+  align-self: center;
+  }
+
+#daily-forcast {
+  display: grid;
+  grid-template-areas: "day h-l";
+  grid-template-columns: 1fr 2fr;
+  justify-items: center;
+  border-bottom: solid rgba(138, 137, 137, 0.8);
+}
+
+.forcast-day {
+  grid-area: day;
+}
+
+.forcast-h-l {
+  grid-area: h-l;
+  display: flex;
+  justify-self: end;
+}
+
+.forcast-h-l p {
+  margin-right: 15px;
+}
