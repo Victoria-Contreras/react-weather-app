@@ -80,13 +80,13 @@ h1 {
 #city-search {
   margin: 20px;
   align-self: center;
-  min-width: 300px;
   display: flex;
   justify-content: center;
 }
 
 #city-search input {
     height: 30px;
+    min-width: 250px;
     align-self: center;
     border-radius: 10px 0 0 10px;
     border-right: 0;
