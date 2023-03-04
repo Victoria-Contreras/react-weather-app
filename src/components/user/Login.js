@@ -29,7 +29,7 @@ const Login = () => {
             .then((data) => {
                 setUsername("");
                 setPassword("");
-                history.push('/home')
+                history.push('/')
             })
             .catch((error) => {
                 setIsError(true)

@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Navigate,
 } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import SearchBar from './components/SearchBar';
@@ -14,22 +13,21 @@ import SignUp from './components/user/SignUp';
 import Favorites from './components/user/Favorites';
 
 function App() {
-
   return (
     <Router>
       <div className="App">
         <Switch>
+          <Route exact path='/'>
+            < Navbar />
+            < SearchBar />
+            < CurrentWeather />
+            < WeeklyWeather />
+          </Route>
           <Route path='/login'>
             <Login />
           </Route>
           <Route path='/sign-up'>
             <SignUp />
-          </Route>
-          <Route path='/home'>
-            < Navbar />
-            < SearchBar />
-            < CurrentWeather />
-            < WeeklyWeather />
           </Route>
           <Route path="/favorites">
             < Favorites />

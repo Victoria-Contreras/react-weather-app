@@ -3,7 +3,7 @@ const Favorites = () => {
     
     return ( 
         <div>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
             <p>city</p>
             {/* <div className='main'>
                 {data ? <h2>{data.name}</h2> : null}
