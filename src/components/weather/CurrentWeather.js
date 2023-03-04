@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch} from 'react-redux'
 import { setcurrentWeather } from '../../features/weather/currentWeatherSlice'
 import ErrorCity from './ErrorCity';
+import heart from '../../assets/heart.png'
+import redHeart from '../../assets/red-heart.png'
 
 const CurrentWeather = () => {
     const city = useSelector((state) => state.city.city);
@@ -21,9 +23,19 @@ const CurrentWeather = () => {
         getCurrentWeather()
     }, [city])
 
+    const [isFav, setIsFav] = useState(false);
+    const favorite = () => {
+        if (!isFav) {
+            setIsFav(true)
+        } else {
+            setIsFav(false)
+        }
+    }
+
     return (  
         <div id='current-weather'>
             <div className='main'>
+                <button id='heart' onClick={favorite}>{isFav ? <img src={redHeart} /> : <img src={heart} />} </button>
                 {data ? <h2>{data.name}</h2> : null}
                 {data.main ? <h2>{data.main.temp.toFixed()}°F</h2> : <ErrorCity />}
                 {data.weather ? <h2>{data.weather[0].description}</h2> : null}
