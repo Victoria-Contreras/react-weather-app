@@ -21,7 +21,8 @@ const Favorites = () => {
     useEffect(() => {
         getFavorites()
     }, [favorites])
-    
+
+
     const handleClick = (e) => {
         e.preventDefault()
         dispatch(setCity(e.target.innerText))
@@ -30,8 +31,8 @@ const Favorites = () => {
     return ( 
         <div className='favorites-bar'>
             <ul>
-                <li>Favorites:</li>
-                {favorites.map((item, index) => <li key={index}><a href='#' onClick={(event) => handleClick(event)}>{item}</a></li>)}
+                { favorites[0] ? <li>Favorites:</li> : null}
+                {favorites[0] ? favorites.map((item, index) => <li key={index}><a href='#' onClick={(event) => handleClick(event)}>{item}</a></li>) : <li><Link to="/login">Log In</Link> or add favorites</li>}
             </ul>
 
         </div>
