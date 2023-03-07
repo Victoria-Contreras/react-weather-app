@@ -20,9 +20,10 @@ const Favorites = () => {
     }, [favorites])
     
     return ( 
-        <div>
+        <div className='favorites-bar'>
             <ul>
-                {favorites.map((item, index) => <li key={index}>{item}</li>)}
+                <li>Favorites:</li>
+                {favorites.map((item, index) => <li key={index}><a href='#'>{item}</a></li>)}
             </ul>
 
         </div>
