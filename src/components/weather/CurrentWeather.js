@@ -27,19 +27,19 @@ const CurrentWeather = () => {
     const favorite = async () => {
         if (!isFav) {
             setIsFav(true)
-            const result = await fetch('/add-favorite', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    city: city
-                }),
-            });
-            return await result.json()
-                .then((data) => {
-                    console.log(data)
-                }).catch(err => console.log(err))
+            //  await fetch('/add-favorite', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({
+            //         city: city
+            //     }),
+            //  })
+            //     .then(result => result.json())
+            //     .then((data) => {
+            //         console.log(data)
+            //     }).catch(err => console.log(err))
         } else {
             setIsFav(false)
         }

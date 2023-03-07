@@ -1,19 +1,29 @@
-import {Link} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 const Favorites = () => {
+    const [favorites, setFavorites] = useState([]);
+
+    const getFavorites = () => {
+        fetch('/view-favorites')
+            .then(response => response.json())
+            .then(data => {
+                data[0].Favorites.map(item => {
+                    if (favorites.indexOf(item.city) == -1) {
+                        setFavorites([ ...favorites, item.city])
+                    }       
+                })              
+            })
+    }
+
+    useEffect(() => {
+        getFavorites()
+    }, [favorites])
     
     return ( 
         <div>
-            <Link to="/">Home</Link>
-            <p>city</p>
-            {/* <div className='main'>
-                {data ? <h2>{data.name}</h2> : null}
-                {data.main ? <h2>{data.main.temp.toFixed()}°F</h2> : <ErrorCity />}
-                {data.weather ? <h2>{data.weather[0].description}</h2> : null}
-                <div className="h-l">
-                    {data.main ? <p>High: {data.main.temp_max.toFixed()}°F</p> : null}
-                    {data.main ? <p>Low: {data.main.temp_min.toFixed()}°F</p> : null}
-                </div>
-            </div> */}
+            <ul>
+                {favorites.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
 
         </div>
      );
