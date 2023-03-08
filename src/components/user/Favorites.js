@@ -31,7 +31,6 @@ const Favorites = () => {
     return ( 
         <div className='favorites-bar'>
             <ul>
-                { favorites[0] ? <li>Favorites:</li> : null}
                 {favorites[0] ? favorites.map((item, index) => <li key={index}><a href='#' onClick={(event) => handleClick(event)}>{item}</a></li>) : <li><Link to="/login">Log In</Link> or add favorites</li>}
             </ul>
 

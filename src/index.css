@@ -233,6 +233,10 @@ h3 {
   margin: 5px;
 }
 
+.favorites-bar {
+  background-color: rgb(30, 82, 150);
+}
+
 .favorites-bar ul{
   list-style: none;
   display: flex;
@@ -241,6 +245,6 @@ h3 {
 }
 
 .favorites-bar li{
-margin-left: 10px
+margin-left: 10px;
 }
 
