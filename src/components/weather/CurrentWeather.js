@@ -39,7 +39,7 @@ const CurrentWeather = () => {
     return (  
         <div id='current-weather'>
             <div className='main'>
-                <button id='heart' onClick={favorite}><img src={heart} /></button>
+                {/* <button id='heart' onClick={favorite}><img src={heart} /></button> */}
                 {data ? <h2>{data.name}</h2> : null}
                 {data.main ? <h2>{data.main.temp.toFixed()}°F</h2> : <ErrorCity />}
                 {data.weather ? <h2>{data.weather[0].description}</h2> : null}

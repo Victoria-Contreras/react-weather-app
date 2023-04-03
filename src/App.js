@@ -19,7 +19,7 @@ function App() {
         <Switch>
           <Route exact path='/'>
             < Navbar />
-            < Favorites />
+            {/* < Favorites /> */}
             < SearchBar />
             < CurrentWeather />
             < WeeklyWeather />
@@ -36,6 +36,8 @@ function App() {
         </Switch>
       </div>
     </Router>
+    
+    
   );
 }
 
